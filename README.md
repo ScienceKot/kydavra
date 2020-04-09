@@ -12,7 +12,7 @@ This version of kydavra has the next methods of feature selection:
 * Spearman Correlation selector (SpermanCorrelationSelector).
 All these methods takes the pandas Data Frame and y column to select from remained columns in the Data Frame.
 
-#How to use kydavra\
+How to use kydavra\
 To use selector from kydavra you should just import the selector from kydavra in the following framework:\
 ```from kydavra import <class name>```\
 class names are written above in parantheses.\
