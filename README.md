@@ -42,6 +42,7 @@ Some advices.
 * Use ChiSquaredSelector for categorical features.
 * Use LassoSelector and PValueSelector for regression problems.
 * Use PointBiserialCorrSelector for binary classification problems.
+* Use ShannonSelector to choose whatever to keep the NaN values (as another value) and to drop column with a lot of NaN values.\n
 
 With love from Sigmoid.
 
