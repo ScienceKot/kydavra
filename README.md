@@ -10,6 +10,7 @@ This version of kydavra has the next methods of feature selection:
 * Point-Biserial selector (PointBiserialCorrSelector).
 * P-value selector (PValueSelector).
 * Spearman Correlation selector (SpermanCorrelationSelector).
+* Shannon selector (ShannonSelector).
 All these methods takes the pandas Data Frame and y column to select from remained columns in the Data Frame.
 
 How to use kydavra\
