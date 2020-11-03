@@ -7,3 +7,4 @@ from .PointBiserialSelector import PointBiserialCorrSelector
 from .PValueSelector import PValueSelector
 from .SpearmanCorrelationSelector import SpermanCorrelationSelector
 from .GeneticAlgorithmSelector import GeneticAlgorithmSelector
+from .ShannonSelector import ShannonSelector
