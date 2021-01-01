@@ -8,7 +8,7 @@ import numpy as np
 import math
 
 class ShannonSelector:
-    def __init__(self, select_strategy = 'mean', nan_acceptance_level = 0.5):
+    def __init__(self, select_strategy : str = 'mean', nan_acceptance_level : float = 0.5) -> None:
         '''
             Setting up the algorithm
         :param select_strategy: str, default = 'mean'
@@ -26,7 +26,7 @@ class ShannonSelector:
             raise ValueError("ShannonSelector doesn't accepts such a strategy. Choose 'mean' of 'median'")
         self.__nan_acceptance_level = nan_acceptance_level
 
-    def __entropy(self, *classes_prob):
+    def __entropy(self, *classes_prob : list) -> float:
         '''
             This function calculates the entropy
         :param classes_prob: tuple
@@ -39,7 +39,7 @@ class ShannonSelector:
             entropy -= cls_prob * math.log2(cls_prob)
         return entropy
 
-    def select(self, dataframe, y_column):
+    def select(self, dataframe : 'pd.DataFrame', y_column : str) -> list:
         '''
             This function implements the Shannon selection on the data frame
         :param dataframe: pandas.DataFrame

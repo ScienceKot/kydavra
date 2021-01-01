@@ -5,8 +5,8 @@ Created with love by Sigmoid
 '''
 # Importing all needed libraries
 from .errors import NotBetweenZeroAndOneError
-class SpermanCorrelationSelector:
-    def __init__(self, min_corr=0.5, max_corr=0.8, erase_corr=False):
+class SpearmanCorrelationSelector:
+    def __init__(self, min_corr : float = 0.5, max_corr : float = 0.8, erase_corr : bool = False) -> None:
         '''
             Setting up the algorithm
         :param min_corr: float, between 0 and 1, default = 0.5
@@ -32,7 +32,7 @@ class SpermanCorrelationSelector:
             self.min_corr = min_corr
             self.max_corr = max_corr
             self.erase_corr = erase_corr
-    def index_to_cols(self, index_list):
+    def index_to_cols(self, index_list : int) -> list:
         '''
             Converting the list of indexes into a list of features
         :param index_list: list
@@ -41,7 +41,7 @@ class SpermanCorrelationSelector:
             A list with feature names
         '''
         return [self.X_columns[i] for i in index_list]
-    def select(self, dataframe, y_column):
+    def select(self, dataframe : 'pd.DataFrame', y_column : str) -> list:
         '''
             Selecting the best features
         :param dataframe: pandas DataFrame
@@ -51,15 +51,28 @@ class SpermanCorrelationSelector:
         :return: list
             The list of features that are selected by the algorithm as the best one
         '''
+        # Getting the list with names of columns without the target one
         self.X_columns = [col for col in dataframe.columns if col != y_column]
+
+        # Creating an empty list for correlated columns
         correlated_indexes = []
+
+        # Getting the y-column index
         y_column_index = list(dataframe.columns).index(y_column)
+
+        # Generating the correlation matrix
         self.corr_table = dataframe.corr(method='spearman')
         corr_matrix = self.corr_table.values
+
+        # Searching for the columns correlated with the y-column
         for i in range(len(corr_matrix[y_column_index])):
             if abs(corr_matrix[y_column_index][i]) > self.min_corr and abs(corr_matrix[y_column_index][i]) < self.max_corr:
                 correlated_indexes.append(i)
+
+        # Creating a list with the names of columns correlated with the y-column
         self.correlated_cols = self.index_to_cols(correlated_indexes)
+
+        # If we chose to erase a column from the correlated pairs we erase one of them
         if self.erase_corr:
             cols_to_remove = []
             for i in correlated_indexes:
@@ -67,6 +80,8 @@ class SpermanCorrelationSelector:
                     if abs(corr_matrix[i][j]) > self.max_corr and abs(corr_matrix[i][j]) < self.max_corr:
                         cols_to_remove.append(self.X_columns[i])
             cols_to_remove = set(cols_to_remove)
+
+            # Removing the chose columns
             for col in cols_to_remove:
                 self.correlated_cols.remove(col)
         return self.correlated_cols

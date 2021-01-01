@@ -10,3 +10,8 @@ class NotBetweenZeroAndOneError(BaseException):
 class NotBinaryData(BaseException):
     ''' Raised when the data passed is not binary '''
     pass
+
+class NoSuchMethodError(BaseException):
+    ''' Raised when the selector or reducer doesnt't have a method '''
+    pass
+

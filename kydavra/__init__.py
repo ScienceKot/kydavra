@@ -5,6 +5,13 @@ from .LassoSelector import LassoSelector
 from .PearsonCorrelationSelector import PearsonCorrelationSelector
 from .PointBiserialSelector import PointBiserialCorrSelector
 from .PValueSelector import PValueSelector
-from .SpearmanCorrelationSelector import SpermanCorrelationSelector
+from .SpearmanCorrelationSelector import SpearmanCorrelationSelector
 from .GeneticAlgorithmSelector import GeneticAlgorithmSelector
 from .ShannonSelector import ShannonSelector
+from .LDAReducer import LDAReducer
+from .M3USelector import M3USelector
+from .MixerSelector import MixerSelector
+from .MUSESelector import MUSESelector
+from .ElasticNet import ElasticNetSelector
+from .PCAReducer import PCAReducer
+from .PCAFilter import PCAFilter
