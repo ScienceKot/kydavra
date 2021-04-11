@@ -11,6 +11,13 @@ This version of kydavra has the next methods of feature selection:
 * P-value selector (PValueSelector).
 * Spearman Correlation selector (SpermanCorrelationSelector).
 * Shannon selector (ShannonSelector).
+* ElasticNet Selector (ElasticNetSelector)
+* M3U Selector (M3USelector)
+* MUSE Selector (MUSESelector)
+* Mixer Selector (MixerSelector)
+* PCA Filter (PCAFilter)
+* PCA Reducer (PCAReducer)
+* LDA Reducer (LDAReducer)
 All these methods takes the pandas Data Frame and y column to select from remained columns in the Data Frame.
 
 How to use kydavra\
